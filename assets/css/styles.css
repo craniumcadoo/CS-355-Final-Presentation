@@ -1,0 +1,59 @@
+#calendar {
+  float: right;
+  height: 30px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  max-width: 100%;
+  width: 100%;
+}
+
+#sidebar-left {
+  width: 25%;
+  float: left;
+  background-color: #c56d6d;
+}
+
+#calendar-side {
+  width: 75%;
+  float: right;
+  background-color: #842929;
+}
+
+#content {
+  width: 100%;
+  height: 500px;
+  background-color: #dacdca;
+  color: #dcbcaf;
+}
+
+#header {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+}
+
+#login-page {
+  width: 100%;
+  height: 100%;
+}
+
+#login {
+  width: 100%;
+  height: 100%;
+}
+
+#try {
+}
+
+tr {
+}
+
+.month {
+  width: 100%;
+  height: 50px;
+}
+
+#month-name {
+}
+

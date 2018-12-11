@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>PROJECT355</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Google-Style-Login.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean-1.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+            <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="dropdown nav-item"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Profile&nbsp;</a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#"></a><a class="dropdown-item" role="presentation" href="#"></a><a class="dropdown-item" role="presentation" href="index.html">Sign Out</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="text-right" id="header">
+        <h2 class="text-left" id="item-lookup-header">Item Look Up</h2>
+    </div>
+    <div class="input-group" id="search-group">
+        <div class="input-group-prepend"></div><input class="form-control" type="search" placeholder="What are you looking for?" id="search-text" style="background-color: rgb(242,242,242);">
+        <div class="input-group-append"><button class="btn btn-primary active" type="button" id="search-btn"><i class="fas fa-search"></i></button></div>
+    </div>
+    <div id="calendar">
+        <p id="date"></p>
+    </div>
+    <div class="container" style="width: 100%;max-width: 100%;height: auto;margin-top: 35px;">
+        <div class="row" id="whole-view">
+            <div class="col-3" id="todolist">
+                <p id="demo">&nbsp;</p>
+                <p>Date Picker:&nbsp;</p><input type="text" id="datepicker">
+                <div>
+                    <h1>Today's List</h1>
+                    <p id="instruction">Double click to remove an item.</p><input type="text" placeholder="Add List" id="add-list" name="task"><button class="btn btn-primary active btn-sm border-white" type="button" id="add-btn" style="background-color: rgba(255,107,0,0);color: rgba(255,255,255,0);"><i class="icon ion-plus-circled" style="color: rgb(215,29,29);font-size: 30px;"></i></button></div>
+                <div
+                    id="list">
+                    <ul class="list-unstyled" id="item-lists"></ul>
+            </div>
+        </div>
+        <div class="col d-flex float-right" id="calendar-view">
+            <h1 style="height: 60px;width: 500px;">DECEMBER 2018</h1>
+            <div class="table-responsive" id="monthly-calendar">
+                <table class="table">
+                    <thead>
+                        <tr class="text-center">
+                            <th>SUN</th>
+                            <th>MON</th>
+                            <th>TUE</th>
+                            <th>WED</th>
+                            <th>THU</th>
+                            <th>FRI</th>
+                            <th>SAT</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td class="cells"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>29</td>
+                        </tr>
+                        <tr>
+                            <td>30</td>
+                            <td>31</td>
+                            <td style="color: rgb(170,174,177);">1</td>
+                            <td style="color: rgb(170,174,177);">2</td>
+                            <td style="color: rgb(170,174,177);">3</td>
+                            <td style="color: rgb(170,174,177);">4</td>
+                            <td style="color: rgb(170,174,177);">5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/calendar.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/project.js"></script>
+</body>
+
+</html>
