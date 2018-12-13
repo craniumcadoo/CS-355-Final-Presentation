@@ -3,7 +3,7 @@
 **Authors**: Team 1: Daniel Jacobs, Raissa Padua, Dan Huynh, Sumaiya Tabassum, Eli Kleinworm, Romaine
 
 
-**Version:** 3
+**Version:** 1
 
 ---
 
@@ -63,7 +63,7 @@ The product in development is an Web Application called Weekly Planner, designed
 
 - Developer: Create the database and implement it to the frontend.
 - Tech Writer: Create detailed materials to ensure a successful deployment.
-- Designer: Detail the analysis and design for the frontend of the application.
+- Frontend Developer & Designer: Detail the analysis and design for the frontend of the application.
 - Requirements Specifier: Details a set of requirement use cases.
 - Project Manager: Manages timeline and keeps team on track.
 - Presenter: Showcase our application to users.
@@ -73,8 +73,8 @@ The product in development is an Web Application called Weekly Planner, designed
 | Team Member's Name | Roles |
 | --- | ---|
 | Daniel | *Developer* |
-| Raissa | *Designer* |
+| Raissa | *Frontend Developer & Designer* |
 | Dan | *Requirements Specifier & Tech Writer* |
-| Eli | *Designer & Requirements Specifier* |
+| Eli | *Frontend Developer & Designer & Requirements Specifier* |
 | Sumaiya | *Project Manager*|
 | Romaine | *Presenter* |
