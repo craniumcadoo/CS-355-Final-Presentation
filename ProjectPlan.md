@@ -1,6 +1,6 @@
 ﻿# Project Plan
 
-**Authors**: Team 1: Daniel Jacobs, Raissa Padua, Dan Huynh, Sumaiya Tabassum, Eli Kleinworm, Romaine
+**Authors**: Team 1: Daniel Jacobs, Raissa Padua, Dan Huynh, Sumaiya Tabassum, Eli Kleinworm, Romaine Ewan
 
 
 **Version:** 3
@@ -54,7 +54,7 @@ The product in development is an Web Application called Weekly Planner, designed
 - Dan Huynh
 - Sumaiya Tabassum
 - Eli Kleinworm
-- Romaine
+- Romaine Ewan
 
 
 
