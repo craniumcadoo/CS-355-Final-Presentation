@@ -41,7 +41,15 @@ You will also see a login button to continue to your GroceryBuddy.
 
 ![Home Page](homepage.png)
 
-##### 3.1.1 
+##### 3.1.1 Create your GroceryBuddy Account
+
+You will be able to create your new account by entering your first name, last name, email as your login username, and password.
+
+Once all inout fields are successfully filledout, you can click create account!
+
+![Sign-up Page](signup.png)
+
+
 
 
 
