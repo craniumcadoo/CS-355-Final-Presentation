@@ -15,6 +15,196 @@
     <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+	<script>
+	var email = "";
+	window.onload = function () {
+		var url = document.location.href, 
+		email = url.split('?')[1];
+		document.getElementById("em").innerHTML = email;
+		if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("email-contents").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getEmailContents.php?em="+email,true);
+        xmlhttp.send();
+		setTimeout(function(){
+			var ul = document.createElement("UL");                 // Create a <ul> node
+			document.getElementById("email-contents").appendChild(ul);     // Append <ul> to <div> with id="email-contents"
+			var x = document.getElementsByName("item");
+			for(var i = 0; i < x.length; i++) {
+				var y = x[i].innerHTML;
+				if(y.length != 0) {
+					findPrices(y.toString());
+				}
+			}
+		}, 100);
+	}
+	var allInfo = [];
+	var infoIndex = 0;
+	var smallest = [];
+	var items = [];
+	var index = 0;
+function showUser(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else { 
+		if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","gethint.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+function putItem() {
+	d = document.getElementById("txtHint").value;
+	if(d != "none") {
+
+		document.getElementById("add-list").value = d;
+	}
+}
+function findPrices(d) {
+	if(d != "") {
+		if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("results").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","chooseIng.php?q="+d,false);
+        xmlhttp.send();
+		ru(d);
+	}
+}
+function al() {
+    d = document.getElementById("add-list").value;
+	items[index++] = d;
+}
+function resetArrays() {
+	index = 0;
+	smallest = [];
+	items = [];
+	var listItems = document.getElementById("item-lists").innerHTML = "";
+}
+function ru(d) {
+		var a = parseFloat(document.getElementById("StoreA").innerHTML);
+		var b = parseFloat(document.getElementById("StoreB").innerHTML);
+		var c = parseFloat(document.getElementById("StoreC").innerHTML);
+		var li = document.createElement("li");
+		li.setAttribute("name", "ing");
+		if(a <= b && a <= c) {
+			li.innerHTML = d + ": Buy from BJ's at a price of " + a;
+		}
+		else if(b <= a && b <= c) {
+			li.innerHTML = d + ": Buy from Costco at a price of " + b;
+		}
+		else {
+			li.innerHTML = d + ": Buy from Stop & Shop at a price of " + c;
+		}
+		document.getElementById("list-things").appendChild(li);
+}
+function addToDate() {
+	var date = document.getElementById("dp").value;
+	if(date == "") {
+		alert("Pick a date");
+		return;
+	}
+	var itemNo = 0;
+	var it = [];
+	var ind = 0;
+	var listItems = document.getElementById("item-lists").innerHTML;
+	var res = listItems.split("<li");
+	var res2 = [];
+	for(var i = 1; i < res.length; i++) {
+		res2[i-1] = res[i].split(">,");
+		if(res2[i-1].toString().indexOf('class') == -1) {
+			it[itemNo] = items[ind];
+			itemNo++;
+		}
+		ind++;
+		if(itemNo == 10)
+			break;
+	}
+	if(itemNo < 10) {
+		for(var i = itemNo; i < 10; i++) {
+			it[i] = "";
+		}
+	}
+	var email = document.getElementById("em").innerHTML;
+	if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //document.getElementById("results").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","addItems.php?em="+email + "&day=" +date + "&it1=" + it[0] + "&it2=" + it[1] + "&it3=" + it[2] + "&it4=" + it[3]  + "&it5=" + it[4] + "&it6=" + it[5] + "&it7=" + it[6] + "&it8=" + it[7] + "&it9=" + it[8] + "&it10=" + it[9],true);
+        xmlhttp.send();
+		window.location.reload(true); 
+	/*alert(email);
+	alert(date);
+	for(var i = 0; i < 10; i++) {
+		alert(it[i]);
+	}*/
+}
+function sendEmail() {
+		var email = document.getElementById("em").innerHTML;
+		var th = document.getElementsByName("ing");
+		var msg = "";
+		var listIt = {};
+		for(var i = 0; i < th.length; i++) {
+			listIt[th[i].innerHTML + ", \n"] = "";
+		}
+		var keys = Object.keys(listIt);
+		for(var i = 0; i < keys.length; i++) {
+			msg += keys[i];
+		}
+		if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp2 = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp2 = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp2.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //document.getElementById("email-contents").innerHTML = this.responseText;
+            }
+			else {
+			}
+        };
+        xmlhttp2.open("GET","sendEmail.php?em="+email + "&msg=" + msg,true);
+        xmlhttp2.send();
+}
+	</script>
 </head>
 
 <body style="background-color: #f1f7fc;">
@@ -36,104 +226,44 @@
         <h2 class="text-left" id="item-lookup-header">Item Look Up</h2>
     </div>
     <div class="input-group" id="search-group">
-        <div class="input-group-prepend"></div><input class="form-control" type="search" placeholder="What are you looking for?" id="search-text" style="background-color: rgb(242,242,242);">
+        <div class="input-group-prepend"></div>
+		<input class="form-control" type="search" placeholder="What are you looking for?" id="search-text" style="background-color: rgb(242,242,242);" onkeyup="showUser(this.value)"><select id="txtHint" onchange="putItem()"></select>
         <div class="input-group-append"><button class="btn btn-primary active" type="button" id="search-btn"><i class="fas fa-search"></i></button></div>
+    </div>
+    <div id="calendar">
+        <p id="date"></p>
     </div>
     <div class="container" style="width: 100%;max-width: 100%;height: auto;margin-top: 35px;">
         <div class="row" id="whole-view">
-            <div class="col d-inline-flex flex-shrink-1" id="calendar-view">
-                <h1 style="height: 60px;width: 500px;">DECEMBER 2018</h1>
-                <div class="table-responsive" id="monthly-calendar">
-                    <table class="table">
-                        <thead>
-                            <tr class="text-center">
-                                <th>SUN</th>
-                                <th>MON</th>
-                                <th>TUE</th>
-                                <th>WED</th>
-                                <th>THU</th>
-                                <th>FRI</th>
-                                <th>SAT</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center" id="table-body">
-                            <tr style="height: 300px;">
-                                <td>16
-                                    <div>
-                                        <p id="instruction">Double click to remove an item.</p><input type="text" placeholder="Add List" id="add-list" name="task"><button class="btn btn-primary active btn-sm shadow-none" type="button" id="add-btn" style="background-color: #f1f7fc;filter: blur(0px);"><i class="icon ion-plus-circled" style="color: rgb(215,29,29);font-size: 30px;"></i></button>
-                                        <div
-                                            id="list">
-                                            <ul class="list-unstyled" id="item-lists"></ul>
-                                    </div>
-                </div>
-                </td>
-                <td>17
-                    <div>
-                        <p id="instruction">Double click to remove an item.</p><input type="text" placeholder="Add List" id="add-list2" name="task2"><button class="btn btn-primary active btn-sm border-white" type="button" id="add-btn" style="background-color: rgba(255,107,0,0);color: rgba(255,255,255,0);"><i class="icon ion-plus-circled" style="color: rgb(215,29,29);font-size: 30px;"></i></button>
-                        <div
-                            id="list">
-                            <ul class="list-unstyled" id="list2"></ul>
-                    </div>
-            </div>
-            </td>
-            <td>18
+            <div class="col-3" id="todolist">
+                <p id="demo">&nbsp;</p>
+                <p>Date Picker:&nbsp;</p><input type="date" id="dp" onchange="resetArrays()">
                 <div>
-                    <p id="instruction">Double click to remove an item.</p><input type="text" placeholder="Add List" id="add-list3" name="task3"><button class="btn btn-primary active btn-sm border-white" type="button" id="add-btn" style="background-color: rgba(255,107,0,0);color: rgba(255,255,255,0);"><i class="icon ion-plus-circled" style="color: rgb(215,29,29);font-size: 30px;"></i></button>
-                    <div
-                        id="list">
-                        <ul class="list-unstyled" id="list3"></ul>
-                </div>
-        </div>
-        </td>
-        <td>19
-            <div>
-                <p id="instruction">Double click to remove an item.</p><input type="text" placeholder="Add List" id="add-list4" name="task4"><button class="btn btn-primary active btn-sm border-white" type="button" id="add-btn" style="background-color: rgba(255,107,0,0);color: rgba(255,255,255,0);"><i class="icon ion-plus-circled" style="color: rgb(215,29,29);font-size: 30px;"></i></button>
+                    <h1>Today's List</h1>
+                    <p id="instruction">Double click to remove an item.</p><input type="text" placeholder="Add List" id="add-list" name="task" disabled><button class="btn btn-primary active btn-sm border-white" type="button" id="add-btn" style="background-color: rgba(255,107,0,0);color: rgba(255,255,255,0);"><i class="icon ion-plus-circled" onclick="al()" style="color: rgb(215,29,29);font-size: 30px;"></i></button></div>
                 <div
                     id="list">
-                    <ul class="list-unstyled" id="list4"></ul>
+                    <ul class="list-unstyled" id="item-lists"></ul>
+					<input type="button" onclick="addToDate()" value="Add to list"></input>
+					<br>
+					<input type="button" onclick="sendEmail()" value="Send email"></input>
             </div>
-    </div>
-    </td>
-    <td>20
-        <div>
-            <p id="instruction">Double click to remove an item.</p><input type="text" placeholder="Add List" id="add-list5" name="task5"><button class="btn btn-primary active btn-sm border-white" type="button" id="add-btn" style="background-color: rgba(255,107,0,0);color: rgba(255,255,255,0);"><i class="icon ion-plus-circled" style="color: rgb(215,29,29);font-size: 30px;"></i></button>
-            <div
-                id="list">
-                <ul class="list-unstyled" id="list5"></ul>
         </div>
+        <div class="col d-flex float-right" id="info">
+			<div id = "email-contents"></div>
+			<div><ul id= "list-things"></ul></div>
         </div>
-    </td>
-    <td>21
-        <div>
-            <p id="instruction">Double click to remove an item.</p><input type="text" placeholder="Add List" id="add-list6" name="task6"><button class="btn btn-primary active btn-sm border-white" type="button" id="add-btn" style="background-color: rgba(255,107,0,0);color: rgba(255,255,255,0);"><i class="icon ion-plus-circled" style="color: rgb(215,29,29);font-size: 30px;"></i></button>
-            <div
-                id="list">
-                <ul class="list-unstyled" id="list6"></ul>
-        </div>
-        </div>
-    </td>
-    <td>22
-        <div>
-            <p id="instruction">Double click to remove an item.</p><input type="text" placeholder="Add List" id="add-list7" name="task7"><button class="btn btn-primary active btn-sm border-white" type="button" id="add-btn" style="background-color: rgba(255,107,0,0);color: rgba(255,255,255,0);"><i class="icon ion-plus-circled" style="color: rgb(215,29,29);font-size: 30px;"></i></button>
-            <div
-                id="list">
-                <ul class="list-unstyled" id="list7"></ul>
-        </div>
-        </div>
-    </td>
-    </tr>
-    </tbody>
-    </table>
     </div>
     </div>
-    </div>
-    </div>
+	<div id = "results" style="display:none;"></div>
+	<div id = "em" style="display:none;"></div>
+	
+	
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/calendar.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="assets/js/pretty-calendar.js"></script>
     <script src="assets/js/project.js"></script>
 </body>
 

@@ -15,30 +15,39 @@
     <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+	<script>
+	function resetPassword() {
+		var email = document.getElementById("email").value;
+		var newPass = document.getElementById("new-password").value;
+		if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //document.getElementById("email-contents").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","resetPassword.php?em="+email+"&pw="+newPass,true);
+        xmlhttp.send();
+	}
+	</script>
 </head>
 
 <body style="background-color: #f1f7fc;">
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: #f1f7fc;">
-        <div class="container"><a class="navbar-brand" href="index.html" target="_parent" style="background-image: url(&quot;logo_transparent.png&quot;);width: 300px;height: 100px;">&nbsp;<img src="assets/img/GC-logo.png" style="width: 300px;"></a><button class="navbar-toggler"
-                data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav ml-auto"></ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container" id="contentss">
-        <div id="form">
-            <h1>Forgot Password?</h1>
-            <p>Enter your email address to reset your password.</p>
-            <form id="reset-form"><label>Email address</label><input class="form-control" type="email" id="email"><label>New Password</label><input class="form-control" type="text" id="new-password"><span></span><button class="btn btn-primary" type="button" id="reset-btn">Reset Password</button></form>
-        </div>
+    <div id="form">
+        <h1>Forgot Password?</h1>
+        <p>Enter your email address to reset your password.</p>
+        <form id="reset-form"><label>Email address</label><input class="form-control" type="email" id="email"><label>New Password</label><input class="form-control" type="text" id="new-password"><span></span><button class="btn btn-primary" type="button" id="reset-btn" onclick="resetPassword()">Reset Password</button></form>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/calendar.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="assets/js/pretty-calendar.js"></script>
     <script src="assets/js/project.js"></script>
 </body>
 
