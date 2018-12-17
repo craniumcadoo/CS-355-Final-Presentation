@@ -15,14 +15,63 @@
     <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+	<script>
+	function checkPassword() {
+		var em = document.getElementsByName("email")[0].value;
+		if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getPw.php?q="+em,true);
+        xmlhttp.send();
+		var pw = document.getElementsByName("password")[0].value;
+		if(pw == document.getElementById("txtHint").innerHTML && pw != "") {
+			var submit = document.getElementById("logIn");
+			submit.setAttribute("href", "profile.html?" + em);
+		}
+		else {
+			var submit = document.getElementById("logIn");
+			submit.setAttribute("href", "index.html");
+		}
+	}
+	function addUser() {
+		var first = document.getElementById("fname").value;
+		var last = document.getElementById("lname").value;
+		var email = document.getElementById("email").value;
+		var pw = document.getElementById("password").value;
+		var dupPw = document.getElementById("repeat-password").value;
+		if(pw != dupPw) {
+			alert("Enter the same password for both fields");
+			return;
+		}
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if(this.readyState == 4 && this.status == 200) {
+				console.log(this.responseText);
+			}
+		};
+        xhttp.open("GET","makeUser.php?em="+email + "&pw="+pw+"&fn="+first+"&ln="+last, true);
+        xhttp.send();
+	}
+	</script>
 </head>
 
 <body>
+
+<div id="txtHint" style="display: none;"></div>
     <div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: #f1f7fc;">
-            <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse"
-                    id="navcol-1">
+            <div class="container"><a class="navbar-brand" href="index.html" style="background-image: url(&quot;logo_transparent.png&quot;);width: 300px;height: 100px;">&nbsp;<img src="assets/img/GC-logo.png" style="width: 300px;"></a><button class="navbar-toggler" data-toggle="collapse"
+                    data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav ml-auto"></ul>
                 </div>
             </div>
@@ -32,9 +81,9 @@
         <form method="post">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><a class="btn btn-primary btn-block" role="button" href="profile.html">Log In</a></div><a href="forgotpage.html" class="forgot">Forgot your email or password?</a><a href="#" class="new" data-toggle="modal" data-target="#myModal">New User? Sign Up here!</a>
+            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" onkeyup="checkPassword()"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" onkeyup="checkPassword()"></div>
+            <div class="form-group"><a id = "logIn" class="btn btn-primary btn-block" role="button" href="index.html">Log In</a></div><a href="forgotpage.html" class="forgot">Forgot your email or password?</a><a href="#" class="new" data-toggle="modal" data-target="#myModal">New User? Sign Up here!</a>
             <div
                 class="modal fade bg-primary" role="dialog" tabindex="-1" id="myModal" style="background-color: rgb(241,247,252);">
                 <div class="modal-dialog" role="document">
@@ -48,7 +97,7 @@
                                 <input
                                     class="form-control" type="password" placeholder="Password" id="password"><label style="font-weight: bold;">Repeat Password</label><input class="form-control" type="password" placeholder="Repeat Password" id="repeat-password"><span style="padding: 10px;"></span><p style="font-weight: bold;font-size: 14px;">By creating an account you agree to our <a href="#">Terms &amp; Condition.</a></p></div>
                         </div>
-                        <div class="modal-footer"><button class="btn btn-primary btn-block" type="button" id="close-btn" data-dismiss="modal" style="background-color: rgb(164,156,158);">Cancel</button><button class="btn btn-primary btn-block" type="submit" id="submit-btn">Sign Up</button></div>
+                        <div class="modal-footer"><button class="btn btn-primary btn-block" type="button" id="close-btn" data-dismiss="modal" style="background-color: rgb(164,156,158);">Cancel</button><button class="btn btn-primary btn-block" type="submit" id="submit-btn" onclick="return addUser()">Sign Up</button></div>
                     </div>
                 </div>
     </div>
@@ -59,6 +108,7 @@
     <script src="assets/js/calendar.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/pretty-calendar.js"></script>
     <script src="assets/js/project.js"></script>
 </body>
 

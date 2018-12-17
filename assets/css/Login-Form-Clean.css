@@ -66,6 +66,7 @@
 .login-clean form .forgot:hover, .login-clean form .forgot:active {
   opacity: 1;
   text-decoration: none;
+  color: #eb3b60;
 }
 
 #search-group {
@@ -110,6 +111,12 @@
   text-decoration: none;
 }
 
+.login-clean form .new:hover, .login-clean form .new:active {
+  opacity: 1;
+  text-decoration: none;
+  color: #eb3b60;
+}
+
 #modal-link {
   display: block;
   text-align: center;
@@ -122,6 +129,10 @@
 
 #myModal {
 }
+/* 
+#reset-form{
+    text-align: center;
+} */
 
 .bg-primary {
   background-color: rgb(241,247,252)!important;
