@@ -9,9 +9,9 @@
 
 #### 1.1 What is GroceryBuddy?
 
-The GroceryBuddy application allows users to create grocery lists for any of their shopping needs. The application also generates a set of groceries for the user for everyday of the week if the user does not know what to shop for. The software's algorithm finds the cheapest price of the grocery item and find its store where the item is being sold. The user is able to modify the lists (clear, and add items as expected), and can generate grocery items to their lists. 
+The GroceryBuddy application allows users to create grocery lists for any of their shopping needs. GroceryBuddy allows a user to manage their grocery list. The software's algorithm finds the cheapest price of the grocery item and find its store where the item is being sold. The user is able to modify the lists (clear, and add items as expected), and can generate grocery items to their lists. 
 
-Users are notified by email to remind them that GroceryBuddy has generated ideal grocery items for a user to purchase.
+Users can send an email of the lists generated in GroceryBuddy to their email by a click of a button.
 
 #### 1.2 System Overview
 
@@ -39,7 +39,7 @@ Welcome to your GroceryBuddy! Here on your home screen, you will be able to logi
 
 You will also see a login button to continue to your GroceryBuddy.
 
-![Home Page](homepage.PNG)
+![Home Page](homepage.png)
 
 ##### 3.1.1 
 
