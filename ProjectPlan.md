@@ -9,7 +9,7 @@
 
 ### 1.0 Introduction
 
-The product in development is an Web Application called Weekly Planner, designed to enable the user to maintain any number of ingredients for the meal plan to keep track of the items they may need.  In today's mobile-centric world, we hope to provide the user with a more practical way to maintain meal plans in a clean, simple web app that they can access from their mobile device instead of worrying about the hassle of written lists.
+The product in development is a Web Application called GorceryBuddy, designed to enable the user to maintain any number of ingredients for the meal plan to keep track of the items they may need.  In today's mobile-centric world, we hope to provide the user with a more practical way to maintain meal plans in a clean, simple web app that they can access from their mobile device instead (as well as PC) from worrying about the hassle of written lists.
 
 ---
 
@@ -61,20 +61,20 @@ The product in development is an Web Application called Weekly Planner, designed
 
 **Roles and Descriptions for Each Phase**
 
-- Developer: Create the database and implement it to the frontend.
-- Tech Writer: Create detailed materials to ensure a successful deployment.
-- Designer: Detail the analysis and design for the frontend of the application.
-- Requirements Specifier: Details a set of requirement use cases.
 - Project Manager: Manages timeline and keeps team on track.
+- Tech Writer: Create detailed materials to ensure a successful deployment.
+- Requirements Specifier: Details a set of requirement use cases.
+- Designer: Detail the analysis and design for the frontend of the application.
+- Developer: Create the database and implement it to the frontend.
 - Presenter: Showcase our application to users.
 
 <br />
 
 | Team Member's Name | Roles |
 | --- | ---|
-| Daniel | *Developer* |
-| Raissa | *Designer* |
+| Sumaiya | *Project Manager*|
 | Dan | *Requirements Specifier & Tech Writer* |
 | Eli | *Designer & Requirements Specifier* |
-| Sumaiya | *Project Manager*|
+| Raissa | *Designer* |
+| Daniel | *Developer* |
 | Romaine | *Presenter* |
