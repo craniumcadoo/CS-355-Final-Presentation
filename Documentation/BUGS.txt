@@ -1,0 +1,11 @@
+Bugs
+
+1. Forgot Password Page
+ Users can enter other users email and change their password. Other users can hack users.
+
+2. Create user page 
+This does not varify Proper email. When you send Email from GroceryBuddy it may send to an invalid Email Address.
+
+3. Add to List 
+Sometimes when adding an item to the list it does not work. User must follow sequences prior to adding to his/her list.
+
