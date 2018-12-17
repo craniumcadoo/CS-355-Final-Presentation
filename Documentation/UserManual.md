@@ -49,6 +49,12 @@ Once all inout fields are successfully filledout, you can click create account!
 
 ![Sign-up Page](signup.png)
 
+##### 3.1.1 Forgot your Password?
+
+You can reset your password if you've forgotten it by entering your email address and your new password.
+
+![Forgot Password Page](reset.png)
+
 
 
 
