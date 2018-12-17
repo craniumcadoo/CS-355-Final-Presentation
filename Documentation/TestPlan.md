@@ -43,6 +43,8 @@ We will attempt to keep documentation of all identified bugs. Research into bug 
 |Log in|Making sure the username exists and password enetered is assiociated to the username.|Test by entering a credential that exisits within the database and nonexisiting within the database|Allows user to continue onto their account to GroceryBuddy.|Same|Pass||
 |Forget Password|Allows users whom forget password to change their password.|Test by entering an exsisting/nonexisiting username and attempt to change password. |If successful with steps, return to login page.|Same|Pass||
 |Item Lookup |Testing wether the item exists within database.|Enter in an grocery item in searchbox to see if it exists.|Shows the name of item on the side.|Same|Pass||
+|Add to List |Adds selected item to the chosen day of the week.|Having a selected grocery item chosen, click the 'Add to List' button to add the item|Shows the name of item under the day of the week.|Same|Pass||
+|Send Email |Sends an email of the selected week and all the items within each day with the cheapest price of the item among stores.|Add items to list, then press send email button.|Sends an email to the email showing items of within each week and the lowest prices within each stores.|Same|Pass||
 
 As of now, the implementation procedure of all the software has not been finalized. So attempting to describe the implementation of the black-box that we would run will be premature.
 
