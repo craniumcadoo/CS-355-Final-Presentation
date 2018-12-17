@@ -49,11 +49,25 @@ Once all inout fields are successfully filledout, you can click create account!
 
 ![Sign-up Page](signup.png)
 
-##### 3.1.1 Forgot your Password?
+##### 3.1.2 Forgot your Password?
 
 You can reset your password if you've forgotten it by entering your email address and your new password.
 
 ![Forgot Password Page](reset.png)
+
+##### 3.2 Navigating your GroceryBuddy
+
+Congratualtions! You just gained access to your GroceryBuddy! You can manage your grocery items for the week here.
+
+You must first select which date you would like to add grocery items to on the left side of the application.
+
+Then search for item by typing in the 'Item Look Up' text field your item, then you must select the drop down bar to see if item exists.
+
+Now you can add to your list by pressing 'Add to List' button and it will display on your right side of the application
+
+If you want to send an email of the list to yourself, you can click the 'Send email' button to send the list of items and prices to your email.
+
+![Main Page](main.png)
 
 
 
