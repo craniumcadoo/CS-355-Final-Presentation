@@ -45,6 +45,7 @@ We will attempt to keep documentation of all identified bugs. Research into bug 
 |Item Lookup |Testing wether the item exists within database.|Enter in an grocery item in searchbox to see if it exists.|Shows the name of item on the side.|Same|Pass||
 |Add to List |Adds selected item to the chosen day of the week.|Having a selected grocery item chosen, click the 'Add to List' button to add the item|Shows the name of item under the day of the week.|Same|Pass||
 |Send Email |Sends an email of the selected week and all the items within each day with the cheapest price of the item among stores.|Add items to list, then press send email button.|Sends an email to the email showing items of within each week and the lowest prices within each stores.|Same|Pass||
+|Logout |Safely logout the user, saves progress, and return to login page.|Press the logout button.|Return to homepage.|Same|Pass||
 
 As of now, the implementation procedure of all the software has not been finalized. So attempting to describe the implementation of the black-box that we would run will be premature.
 
