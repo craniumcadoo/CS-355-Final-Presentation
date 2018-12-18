@@ -25,8 +25,8 @@ $result = mysqli_query($conn,$sql);
 <th>Item 10</th>
 </tr>";
     while($row = mysqli_fetch_array($result)) {
-		
-	echo "<td>" . $row['dayOfWeek'] . "</td>";
+		echo "<tr>";
+	echo "<td name ='day' id='" . $row['dayOfWeek'] . "'>" . date('l', strtotime("Saturday +{$row['dayOfWeek']} days")) . "</td>";
     echo "<td name='item'>" . $row['item1'] . "</td>";
 	echo "<td name='item'>" . $row['item2'] . "</td>";
 	echo "<td name='item'>" . $row['item3'] . "</td>";
